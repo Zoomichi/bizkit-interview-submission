@@ -20,8 +20,22 @@ def match(match_id):
 
 
 def is_match(fave_numbers_1, fave_numbers_2):
-    for number in fave_numbers_2:
-        if number not in fave_numbers_1:
-            return False
+    # for number in fave_numbers_2:
+    #     if number not in fave_numbers_1:
+    #         return False
+    
+    # return True
+
+    index = 0
+    fave_numbers_1.sort()
+    fave_numbers_2.sort()
+    for number in fave_numbers_1:
+        if index < len(fave_numbers_2):
+            if fave_numbers_2[index] == number:
+                index += 1
+            elif fave_numbers_2[index] < number:
+                return False
+        else:
+            break
 
     return True
